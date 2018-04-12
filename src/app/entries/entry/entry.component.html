@@ -1,1 +1,19 @@
-heia
+<!-- photo -->
+<h2>{{title}}</h2>
+<figure>
+    <img src="{{photo}}">
+    <figcaption>{{description}}</figcaption>
+</figure>
+
+<!-- like and comment button -->
+<div class="action">
+    <button type="button" (click)="isLiked = !isLiked" [ngClass]="{liked: isLiked}">❤</button>
+    <button type="button" (click)="showComments = !showComments">Comments {{comments.length}}</button>
+</div>    
+
+<!-- comment section -->
+<div class="comments" *ngIf="showComments">
+    <div class="comment" *ngFor="let comment of comments">
+        <p><strong>{{comment.name}}</strong> {{comment.comment}}</p>
+    </div>
+</div>
